@@ -1,5 +1,7 @@
 defmodule Cocoon.Transformer do
-  @spec call(map | [map], [tuple]) :: map | [map]
+  alias Cocoon.{ Mapping }
+
+  @spec call(map | [map], [Mapping.t()]) :: map | [map]
   def call(data, mapping)
   def call(data, mapping) when is_list(data) do
     Enum.map(data, &(call(&1, mapping)))
