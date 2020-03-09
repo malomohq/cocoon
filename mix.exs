@@ -18,6 +18,12 @@ defmodule Cocoon.MixProject do
   end
 
   defp deps do
-    []
+    [
+      #
+      # dev
+      #
+
+      { :dialyxir, "~> 1.0-rc", only: :dev, runtime: false }
+    ]
   end
 end
