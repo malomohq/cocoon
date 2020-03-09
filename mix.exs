@@ -8,7 +8,8 @@ defmodule Cocoon.MixProject do
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      dialyzer: dialyzer()
+      dialyzer: dialyzer(),
+      package: package()
     ]
   end
 
@@ -33,5 +34,17 @@ defmodule Cocoon.MixProject do
     [
       plt_core_path: "./_build/#{Mix.env()}"
     ]
+  end
+
+  defp package do
+    %{
+      description: "Elixir library for transforming maps",
+      maintainers: ["Kurt Friedrich"],
+      licenses: ["MIT"],
+      links: %{
+        GitHub: "https://github.com/malomohq/cocoon-elixir",
+        "Made by Malomo - Post-purchase experiences that customers love": "https://gomalomo.com"
+      }
+    }
   end
 end
