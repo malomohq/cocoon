@@ -38,8 +38,8 @@ defmodule Cocoon.MixProject do
 
   defp package do
     %{
-      description: "Elixir library for transforming maps",
-      maintainers: ["Kurt Friedrich"],
+      description: "Elixir library for transforming data",
+      maintainers: ["Kurt Friedrich", "Anthony Smith"],
       licenses: ["MIT"],
       links: %{
         GitHub: "https://github.com/malomohq/cocoon-elixir",
