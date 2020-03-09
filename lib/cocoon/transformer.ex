@@ -2,13 +2,13 @@ defmodule Cocoon.Transformer do
   alias Cocoon.{ Mapping }
 
   @spec call(map | [map], [Mapping.t()]) :: map | [map]
-  def call(data, mapping)
-  def call(data, mapping) when is_list(data) do
-    Enum.map(data, &(call(&1, mapping)))
+  def call(data, mappings)
+  def call(data, mappings) when is_list(data) do
+    Enum.map(data, &(call(&1, mappings)))
   end
 
-  def call(data, mapping) do
-    Enum.reduce(mapping, %{}, fn
+  def call(data, mappings) do
+    Enum.reduce(mappings, %{}, fn
       ({ to, from }, acc) ->
         Map.put(acc, to, get_in(data, from))
       ({ to, from, function }, acc) ->
