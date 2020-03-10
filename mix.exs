@@ -38,7 +38,7 @@ defmodule Cocoon.MixProject do
 
   defp package do
     %{
-      description: "Elixir library for transforming data",
+      description: "Pure Elixir library for transforming data",
       maintainers: ["Kurt Friedrich", "Anthony Smith"],
       licenses: ["MIT"],
       links: %{
