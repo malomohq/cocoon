@@ -52,7 +52,7 @@ the outside world and your application.
 
 For example, you might transform the responses from an external API into a
 format that is more predictable and consistent with the vocabulary in your app.
-By doing this, you also impose a boundary that limits coupling to the external 
+By doing this, you also impose a boundary that limits coupling to the external
 data source.
 
 ### Mappings
@@ -73,7 +73,8 @@ value pairs that are explicitly defined by a mapping._
 
 ### Data Types
 
-Cocoon currently provides support for transforming maps, or a list of maps of
-the same kind, e.g. a list of orders.
+Cocoon currently provides support for transforming maps, or a list of maps, e.g.
+a list of orders.
 
-If a list of maps is provided, a list of maps will also be returned, with the mappings applied to each element of the set.
+If a list of maps is provided, a list of maps will also be returned, with the
+mappings applied to each element of the set.
