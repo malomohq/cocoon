@@ -63,3 +63,5 @@ entry in the dataset:
 
 Cocoon currently provides support for transforming maps, or a list of maps of
 the same kind, e.g. a list of orders.
+
+If a list of maps is provided, a list of maps will also be returned, with the mappings applied to each element of the set.
