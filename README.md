@@ -23,29 +23,37 @@ data =
   %{
     "currency" => "USD",
     "customer" => %{
-      "email_address" => "rodserling@example.com",
-      "name" => "Rod Serling"
-    }
+      "email" => "rodserling@example.com",
+    },
     "notifications" => false,
+    "number_of_items" => 3,
     "order_number" => 12
   }
 
 mappings =
   [
     { :currency, ["currency"] },
-    { :email, ["customer", "email_address"] },
-    { :name, ["customer", "name"] },
-    { :number, "order_count", &to_string/1 }
+    { :email, ["customer", "email"] },
+    { :item_count, ["number_of_items"] },
+    { :number, ["order_number"], &to_string/1 }
   ]
 
 Cocoon.transform(data, mappings)
 #=> %{
 #=>   currency: "USD",
 #=>   email: "rodserling@example.com",
-#=>   name: "Rod Serling",
+#=>   item_count: 3,
 #=>   number: "12"
 #=> }
 ```
+
+One potential use case for Cocoon is to serve as a transformation layer between
+the outside world and your application.
+
+For example, you might transform the responses from an external API into a
+format that is more predictable and consistent with the vocabulary in your app.
+By doing this, you also impose a boundary that limits coupling to the external 
+data source.
 
 ### Mappings
 
@@ -58,6 +66,10 @@ entry in the dataset:
 * First element - destination key, i.e. "to key"
 * Second element - path to existing key, i.e. "from key(s)"
 * Third element (optional) - function to apply to value at existing key
+
+_NOTE: A mapping must be provided for every key / value pair that you want to
+be returned. In other words, the transformed dataset will only contain key /
+value pairs that are explicitly defined by a mapping._
 
 ### Data Types
 
